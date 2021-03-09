@@ -1,12 +1,48 @@
-function converter(sentence){
-  let capitalized = []
-  let words = sentence.split(" ") //split the sentence into words
-  words.forEach(word => {
-    let capitalizedWord = word.slice(0, 1).toUpperCase() + word.slice(1) //capitalize the first letter of every word
-    capitalized.push(capitalizedWord)
-  })
-  let converted = capitalized.join(" ")
-  return converted
+const cyrillicAlpha = /^[а-яА-ЯїЇґҐёЁєЄ]+$/;
+
+const CyrToLatinEnum = {
+  Н: 'H',
+  А: 'A',
+  І: 'I',
+  У: 'Y',
+  К: 'K',
+  Е: 'E',
+  Х: 'X',
+  В: 'B',
+  Р: 'P',
+  О: 'O',
+  С: 'C',
+  М: 'M',
+  Т: 'T',
+};
+
+function transformToLatinString(initialString) {
+  const clearedString = initialString
+    .replace(/[&\/\\#, +()$~%.\-'":*?<>{}\s]/g, '')
+    .toUpperCase();
+  return checkPlateSymbols(clearedString);
+}
+function checkPlateSymbols(plate) {
+  if (plate) {
+    for (let i = 0; i < plate.length; i++) {
+      const char = plate.charAt(i).toUpperCase();
+      const isLatin = checkLatin(char);
+      const CyrToLatinEnumKeys = Object.keys(CyrToLatinEnum);
+      const canConvert = CyrToLatinEnumKeys.indexOf(char) >= 0;
+
+      if (!isLatin && canConvert) {
+        plate =
+          plate.substring(0, i) + CyrToLatinEnum[char] + plate.substring(i + 1);
+      }
+    }
+  }
+
+  return plate;
 }
 
-module.exports = converter
+
+function checkLatin(value) {
+  return !cyrillicAlpha.test(value);
+}
+
+module.exports = transformToLatinString
