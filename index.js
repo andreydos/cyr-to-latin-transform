@@ -16,10 +16,16 @@ const CyrToLatinEnum = {
   Т: 'T',
 };
 
-function transformToLatinString(initialString) {
-  const clearedString = initialString
-    .replace(/[&\/\\#, +()$~%.\-'":*?<>{}\s]/g, '')
-    .toUpperCase();
+function transformToLatinString(initialString, skipNonAlphaNumeric, uppercase) {
+  let clearedString = initialString;
+
+  if (skipNonAlphaNumeric) {
+    clearedString = clearedString.replace(/[&\/\\#, +()$~%.\-'":*?<>{}\s]/g, '')
+  }
+  if (uppercase) {
+    clearedString = clearedString.toUpperCase()
+  }
+
   return checkPlateSymbols(clearedString);
 }
 function checkPlateSymbols(plate) {
