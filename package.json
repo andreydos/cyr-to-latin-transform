@@ -1,0 +1,28 @@
+{
+  "name": "cyr-to-latin-transform",
+  "version": "1.0.0",
+  "description": "try to transform visually similar Cyrillic char to Latin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreydos/cyr-to-latin-transform.git"
+  },
+  "keywords": [
+    "cyrilic",
+    "to",
+    "latin",
+    "transform"
+  ],
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "author": "andreydos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreydos/cyr-to-latin-transform/issues"
+  },
+  "homepage": "https://github.com/andreydos/cyr-to-latin-transform#readme"
+}
