@@ -16,6 +16,13 @@ const CyrToLatinEnum = {
   Т: 'T',
 };
 
+/**
+ * Transform string
+ * @param initialString {string}
+ * @param skipNonAlphaNumeric {boolean} will drop any non alpha numeric symbols
+ * @param uppercase {boolean} if true will return text in uppercase
+ * @returns {string}
+ */
 function transformToLatinString(initialString, skipNonAlphaNumeric, uppercase) {
   let clearedString = initialString;
 
