@@ -1,6 +1,6 @@
 {
   "name": "cyr-to-latin-transform",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "try to transform visually similar Cyrillic char to Latin",
   "main": "index.js",
   "scripts": {

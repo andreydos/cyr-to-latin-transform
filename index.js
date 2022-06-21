@@ -1,4 +1,4 @@
-const cyrillicAlpha = /^[а-яА-ЯїЇґҐёЁєЄ]+$/;
+const cyrillicAlpha = /^[а-яА-ЯіІїЇґҐёЁєЄ]+$/;
 
 const CyrToLatinEnum = {
   Н: 'H',
